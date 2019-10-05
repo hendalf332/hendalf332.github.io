@@ -1,0 +1,71 @@
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Калькулятор</title>
+		<script type="text/javascript">
+	function error(str){
+		alert("Помилка :"+str);
+	}
+	function averageTemperature(patients){
+	var avTemp=0;
+	if(! (patients instanceof Array)){// Перевірка чи передані належні аргументи
+		error("Не масив ");
+		return -1;
+	}
+	var numOfPatients=patients.length+1;//Число для перебору хворих в циклі
+	var kilkistXvorix=patients.length+1;// Число для підрахунку кількості хворих
+	if(numOfPatients==0){//Перевірка чи порожній масив
+		error("нема жодного паціента")
+		return -1;
+	} else if(numOfPatients==1){
+		if(isNaN(patients[0])){
+			error("елемент масиву " +patients[0] + " номер 0 не є числом")
+		} 
+		return !isNaN(patients[0])?patients[0]:-1;
+	}
+	
+		for(var indx=0;indx<numOfPatients;indx++){
+			!isNaN(patients[indx])?avTemp+=patients[indx]:error("Елемент " + patients[indx] +" номер "+indx + " не є числом!!! Кількість паціентів: "+(--kilkistXvorix));
+		}
+		alert("Кількість хворих "+kilkistXvorix)
+		avTemp/= kilkistXvorix
+		return avTemp
+	}
+	
+
+			window.onload = function() {
+			var patients=["zef",22,17,6,"zoro"];
+			var avTemp=averageTemperature(patients);
+			//var avTemp=averageTemperature([]);
+			if(avTemp>=0)
+				alert("Середняя температура хворих в лікарні : "+avTemp);
+			else 
+				error("Помилка немає хворих");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content" style="text-align : center;">
+			<input type="text" name="calculations" maxlength="4" id="result" \>
+			<br/>
+			<input type="button" class="button" id="button0" value="0"/>
+			<input type="button" class="button" id="button1" value="1" />
+			<input type="button" class="button" id="button2" value="2" />
+			<br/>
+			<input type="button" class="button" id="button3" value="3" />
+			<input type="button" class="button" id="button4" value="4" />
+			<input type="button" class="button" id="button5" value="5" />
+			<br/>
+			<input type="button" class="button" id="button6" value="6" />
+			<input type="button" class="button" id="button7" value="7" />
+			<input type="button" class="button" id="button8" value="8" />
+			<br/>
+			<input type="button" class="button" id="button9" value="9" /><br/>
+			<input type="reset" name="reset" id="reset" value="Сбросить" />
+			<input type="reset" name="reset" id="backspace" value="<-" />
+		</div>
+		<audio src="file:///home/hans/Yandex.Disk/fdeew332/Немецкие_военные_марши_/Немецкие военные марши - Schwarzbraun.mp3" autoplay loop>
+		</audio>
+	</body>
+</html>
