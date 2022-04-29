@@ -1,0 +1,11 @@
+<script type="text/javascript">
+urlString=window.location.search.substr(1)
+pair=urlString.split('=')
+if(pair[0]=='url'){
+	console.log(pair[0])
+	console.log(pair[1])
+	urla=pair[1]
+	document.location.replace(urla)
+}
+
+</script>
